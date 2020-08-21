@@ -1,6 +1,3 @@
-// Your web app's Firebase configuration
-// Your web app's Firebase configuration
-
 
 firebase.auth().signInWithEmailAndPassword("lm.perezpacheco@gmail.com", "5864").then(function (result){
     var user = result.user;
