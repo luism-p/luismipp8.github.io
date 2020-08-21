@@ -1,5 +1,5 @@
 
-firebase.auth().signInWithEmailAndPassword("lm.perezpacheco@gmail.com", "5864").then(function (result){
+firebase.auth().signInWithEmailAndPassword("lm.perezpacheco@gmail.com", "584764").then(function (result){
     var user = result.user;
     console.log(result);
     console.log(user);
