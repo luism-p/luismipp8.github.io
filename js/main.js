@@ -1,13 +1,15 @@
-var qrcode = new QRCode("code", {
-    text: "google.es",
-    width: 128,
-    height: 128,
-    colorDark : "#000000",
-    colorLight : "#ffffff",
-    correctLevel : QRCode.CorrectLevel.H
+
+let cretaeCode = function(idElement, web){
+    new QRCode(idElement, {
+        text: web,
+        width: 256,
+        height: 256,
+        colorDark : "#000000",
+        colorLight : "#ffffff",
+        correctLevel : QRCode.CorrectLevel.H
+    });
+}
+
+$(function(){
+    cretaeCode("code", luismipp8.github.io);
 });
-
-
-
-qrcode.makeCode();
-console.log(qrcode);
