@@ -17,11 +17,13 @@ firebase.initializeApp(firebaseConfig);
 
 firebase.auth().signInWithEmailAndPassword("lm.perezpacheco@gmail.com", "5864").then(function (result){
     var user = result.user;
+    console.log(result);
     console.log(user);
 }).catch(function(error) {
     // Handle Errors here.
     var errorCode = error.code;
     var errorMessage = error.message;
+    console.log(error)
     // ...
 });
 
