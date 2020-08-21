@@ -1,3 +1,18 @@
+// Your web app's Firebase configuration
+
+firebase.auth().signInWithEmailAndPassword("lm.perezpacheco@gmail.com", "5864").then(function (result){
+    var user = result.user;
+    console.log(user);
+}).catch(function(error) {
+    // Handle Errors here.
+    var errorCode = error.code;
+    var errorMessage = error.message;
+    // ...
+});
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+firebase.analytics();
+
 let createCode = function(idElement, web){
     new QRCode(idElement, {
         text: web,
