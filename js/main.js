@@ -10,5 +10,5 @@ let cretaeCode = function(idElement, web){
 }
 
 $(function(){
-    cretaeCode("code", luismipp8.github.io);
+    cretaeCode("code", "luismipp8.github.io");
 });
