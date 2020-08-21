@@ -23,10 +23,25 @@
   integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
   crossorigin="anonymous"></script>
 
-<script src="/__/firebase/6.2.0/firebase-app.js"></script>
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-app.js"></script>
 
-<script src="/__/firebase/6.2.0/firebase-auth.js"></script>
-<script src="/__/firebase/6.2.0/firebase-firestore.js"></script>
+<script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+        apiKey: "AIzaSyDc2aK2DuZUW7Iw_WuValYq9o0Y7a_TTTs",
+        authDomain: "test-bar-qrcode.firebaseapp.com",
+        databaseURL: "https://test-bar-qrcode.firebaseio.com",
+        projectId: "test-bar-qrcode",
+        storageBucket: "test-bar-qrcode.appspot.com",
+        messagingSenderId: "1085750921277",
+        appId: "1:1085750921277:web:001764db5c058c11bac254",
+        measurementId: "G-TFXHZDFRFY"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+</script>
+
 <script src="js/main.js">
 
 </script>

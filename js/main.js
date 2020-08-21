@@ -1,6 +1,6 @@
 // Your web app's Firebase configuration
 // Your web app's Firebase configuration
-/*
+
 var firebaseConfig = {
     apiKey: "AIzaSyDc2aK2DuZUW7Iw_WuValYq9o0Y7a_TTTs",
     authDomain: "test-bar-qrcode.firebaseapp.com",
@@ -13,7 +13,7 @@ var firebaseConfig = {
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
-*/
+
 
 firebase.auth().signInWithEmailAndPassword("lm.perezpacheco@gmail.com", "5864").then(function (result){
     var user = result.user;
