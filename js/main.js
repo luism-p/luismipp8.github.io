@@ -12,7 +12,7 @@ firebase.auth().signInWithEmailAndPassword("lm.perezpacheco@gmail.com", "584764"
 });
 
 let createCode = function(idElement, web){
-    new QRCode(idElement, {
+   return new QRCode(idElement, {
         text: web,
         width: 256,
         height: 256,
@@ -21,7 +21,17 @@ let createCode = function(idElement, web){
         correctLevel : QRCode.CorrectLevel.H
     });
 }
-
-$(function(){
-    createCode("code", "www.luismipp8.github.io");
-});
+let qrCode = createCode("code", "www.luismipp8.github.io");
+let task =firebase.database().def("/data"+user.email);
+task.set({
+    carta:{
+        comida:[
+            {
+                nombre:filete,
+                precio:10
+            }
+        ]
+        },
+    qr: qrCode
+    }
+);
