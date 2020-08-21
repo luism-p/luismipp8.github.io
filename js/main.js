@@ -1,4 +1,3 @@
-
 let cretaeCode = function(idElement, web){
     new QRCode(idElement, {
         text: web,
