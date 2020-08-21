@@ -10,5 +10,5 @@ let createCode = function(idElement, web){
 }
 
 $(function(){
-    createCode("code", "luismipp8.github.io");
+    createCode("code", "www.luismipp8.github.io");
 });
