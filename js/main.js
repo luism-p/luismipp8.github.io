@@ -9,9 +9,6 @@ firebase.auth().signInWithEmailAndPassword("lm.perezpacheco@gmail.com", "5864").
     var errorMessage = error.message;
     // ...
 });
-// Initialize Firebase
-firebase.initializeApp(firebaseConfig);
-firebase.analytics();
 
 let createCode = function(idElement, web){
     new QRCode(idElement, {
