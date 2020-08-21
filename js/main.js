@@ -1,4 +1,4 @@
-let cretaeCode = function(idElement, web){
+let createCode = function(idElement, web){
     new QRCode(idElement, {
         text: web,
         width: 256,
@@ -10,5 +10,5 @@ let cretaeCode = function(idElement, web){
 }
 
 $(function(){
-    cretaeCode("code", "https://luismipp8.github.io");
+    createCode("code", "luismipp8.github.io");
 });
