@@ -1,4 +1,5 @@
-var user;
+global = global || {};
+
 
 let createCode = function (idElement, web) {
     return new QRCode(idElement, {
@@ -13,15 +14,17 @@ let createCode = function (idElement, web) {
 let qrCode = createCode("code", "www.luismipp8.github.io");
 
 $(function () {
+    global.initFirebase();
+
     firebase.auth().signInWithEmailAndPassword("lm.perezpacheco@gmail.com", "584764").then(function (result) {
-        user = result.user.uid;
+        global.user = result.user.uid;
         console.log(result);
 
-        console.log(user)
+        console.log(global.user)
 
-        var qr = $('#code img').attr('src');
+        var qr = $('#qrCode img').attr('src');
 
-        let task = firebase.database().ref("data/" + user);
+        let task = firebase.database().ref("data/" + global.userUid);
         task.set({
                 carta: {
                     comida: [
@@ -31,7 +34,9 @@ $(function () {
                         }
                     ]
                 },
-                code:qr
+                code: qr,
+                web: ""
+
             }
         );
 
@@ -46,3 +51,19 @@ $(function () {
 
 
 });
+
+global.initFirebase = function () {
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+        apiKey: "AIzaSyDc2aK2DuZUW7Iw_WuValYq9o0Y7a_TTTs",
+        authDomain: "test-bar-qrcode.firebaseapp.com",
+        databaseURL: "https://test-bar-qrcode.firebaseio.com",
+        projectId: "test-bar-qrcode",
+        storageBucket: "test-bar-qrcode.appspot.com",
+        messagingSenderId: "1085750921277",
+        appId: "1:1085750921277:web:001764db5c058c11bac254",
+        measurementId: "G-TFXHZDFRFY"
+    };
+// Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+}
