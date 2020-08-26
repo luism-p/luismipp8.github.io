@@ -90,8 +90,8 @@ global.loadData = function (){
 
         let jsonData = snapshot.val();
 
-        jsonData.hasOwnProperty("carta")?$('#textAreaJson').val(jsonData.carta):$('#textAreaJson').val("");
-        jsonData.hasOwnProperty("web")?$('#web').val(jsonData.web):$('#web').val("");
+        jsonData.hasOwnProperty("carta")?$('#textAreaJson').val(jsonData.carta).trigger('change'):$('#textAreaJson').val("");
+        jsonData.hasOwnProperty("web")?$('#web').val(jsonData.web).trigger('change'):$('#web').val("");
         $('#web').val()?$('#generateCode').click():false;
     });
 }
@@ -110,10 +110,11 @@ global.saveData = function (json,qr,web){
 }
 
 global.createCode = function (idElement, web) {
+    $('#'+idElement).empty();
     return new QRCode(idElement, {
         text: web,
-        width: 350,
-        height: 350,
+        width: 300,
+        height: 300,
         colorDark: "#000000",
         colorLight: "#ffffff",
         correctLevel: QRCode.CorrectLevel.H
