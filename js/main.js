@@ -63,10 +63,7 @@ global.initFirebase = function () {
 global.loadData = function (callback){
     firebase.database().ref('data/yOVx8ZDrx0eqKlwbsDmWx90sbOt1').once('value').then(function(snapshot) {
         global.jsonData = snapshot.val();
-        console.log(global.jsonData);
-
-        console.log(typeof callback);
-        if(typeof callback == "function") {
+        if(callback && typeof callback == "function") {
             console.log("inner");
             callback();
         }
