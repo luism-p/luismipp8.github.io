@@ -112,8 +112,8 @@ global.saveData = function (json,qr,web){
 global.createCode = function (idElement, web) {
     return new QRCode(idElement, {
         text: web,
-        width: 300,
-        height: 300,
+        width: 350,
+        height: 350,
         colorDark: "#000000",
         colorLight: "#ffffff",
         correctLevel: QRCode.CorrectLevel.H
