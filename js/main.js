@@ -100,3 +100,18 @@ global.createCode = function (idElement, web) {
         correctLevel: QRCode.CorrectLevel.H
     });
 }
+
+//res.reduce((acc, user) => acc + userTemplate(user), "");
+
+function userTemplate(user) {
+    const { city, street, suite } = user.address;
+
+    return `
+    <li class="user" id="user${user.id}">
+      <p class="user-name">
+        <b>${user.name}</b><span> -- ${user.username}</span>
+      </p>
+      <address class="user-address">${street} ${suite}, ${city}</address>
+    </li>
+  `;
+}
