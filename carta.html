@@ -20,55 +20,31 @@
         </div>
     </div>
 
-    <form>
-
-        <div class="input-group">
-            <div class="input-group-prepend">
-                <span class="input-group-text">Json configuración</span>
+    <div class="accordion" id="cartaAc">
+        <div class="card">
+            <div class="card-header" id="headingOne">
+                <h2 class="mb-0">
+                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        Collapsible Group Item #1
+                    </button>
+                </h2>
             </div>
-            <textarea aria-label="With textarea" class="form-control" id="textAreaJson"></textarea>
-        </div>
 
-        <div id="alerta"></div>
-
-
-        <div class="row">
-            <div class="col-md-5 mt-3">
-                <div id="qrCode"></div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-5 mt-3">
-                <div class="input-group">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text">Web</span>
-                    </div>
-                    <input aria-label="With textarea" class="form-control" id="web" type="text"/>
+            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                <div class="card-body">
+                    <ul class="list-group">
+                        <li class="list-group-item">Cras justo odio</li>
+                        <li class="list-group-item">Dapibus ac facilisis in</li>
+                        <li class="list-group-item">Morbi leo risus</li>
+                        <li class="list-group-item">Porta ac consectetur ac</li>
+                        <li class="list-group-item">Vestibulum at eros</li>
+                    </ul>
                 </div>
             </div>
-
-            <div class="col-md-5 mt-3">
-                <button class="btn btn-dark" disabled id="generateCode" type="button">Generate code</button>
-            </div>
         </div>
 
+    </div>
 
-        <div class="row">
-            <div class="col-md-5 mt-3">
-                <div class="input-group">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text">Contraseña</span>
-                    </div>
-                    <input aria-label="With textarea" class="form-control" id="pass" type="password"/>
-                </div>
-            </div>
-
-            <div class="col-md-5 mt-3">
-                <button class="btn btn-dark" disabled id="btnSave" type="button">Guardar</button>
-            </div>
-        </div>
-    </form>
 </div>
 
 <!-- Optional JavaScript -->
@@ -82,10 +58,9 @@
 <script crossorigin="anonymous"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<!-- The core Firebase JS SDK is always required and must be listed first -->
 <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase.js"></script>
-<script src="js/qrcode.min.js"></script>
+
 <script src="js/main.js"></script>
-<script src="js/config.js"></script>
+<script src="js/carta.js"></script>
 </body>
 </html>
