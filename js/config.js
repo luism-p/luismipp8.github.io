@@ -1,5 +1,10 @@
 let global = {};
-
+global.web = $("#web");
+global.pass = $("#pass");
+global.alerta = $("#alerta");
+global.btnSave = $('#btnSave');
+global.textAreaJson = $('#textAreaJson');
+global.generateCode = $('#generateCode');
 
 let success = `<div class="alert alert-success" role="alert" id="alert">
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -10,21 +15,21 @@ let success = `<div class="alert alert-success" role="alert" id="alert">
 
 $(function (){
 
-    $('#pass').on('keyup', function (){
+    global.pass.on('keyup', function (){
         let value = $(this).val();
-        $('#btnSave').attr('disabled', !value);
+        global.btnSave.attr('disabled', !value);
     });
 
-    $('#btnSave').on('click', function (){
-        let pass = $('#pass').val();
+    global.btnSave.on('click', function (){
+        let pass = global.pass.val();
         global.connect(pass);
     });
-    $('#web').on('keyup', function (){
+    global.web.on('keyup', function (){
         let value = $(this).val();
-        $('#generateCode').attr('disabled', !value);
+        global.generateCode.attr('disabled', !value);
     });
-    $('#generateCode').on('click', function (){
-        let web = $('#web').val();
+    global.generateCode.on('click', function (){
+        let web = global.web.val();
         global.createCode("qrCode", web);
     })
     global.initFirebase();
@@ -38,8 +43,8 @@ global.showAlert = function (type, message){
             </button>
             <strong>${message}</strong>
         </div>`
-    $('#alerta').empty();
-    $('#alerta').html(alert);
+    global.alerta.empty();
+    global.alerta.html(alert);
 }
 global.connect = function (pass){
     firebase.auth().signInWithEmailAndPassword("lm.perezpacheco@gmail.com", pass).then(function (result) {
@@ -52,9 +57,9 @@ global.connect = function (pass){
         let message = "Configuración de " +global.userEmail+ " guardada correctamente.";
         global.showAlert("success", message);
 
-        let json = $('#textAreaJson').val();
+        let json = global.textAreaJson.val();
         let qr = $('#qrCode img').attr('src');
-        let web = $('#web').val();
+        let web = global.web.val();
 
         global.saveData(json, qr, web);
 
@@ -90,9 +95,10 @@ global.loadData = function (){
 
         let jsonData = snapshot.val();
 
-        jsonData.hasOwnProperty("carta")?$('#textAreaJson').val(jsonData.carta).trigger('change'):$('#textAreaJson').val("");
-        jsonData.hasOwnProperty("web")?$('#web').val(jsonData.web).trigger('change'):$('#web').val("");
-        $('#web').val()?$('#generateCode').click():false;
+        jsonData.hasOwnProperty("carta")?global.textAreaJson.val(jsonData.carta).trigger('change'):global.textAreaJson.val("");
+        jsonData.hasOwnProperty("web")?global.web.val(jsonData.web).trigger('change'):global.web.val("");
+
+        global.web.val()?global.generateCode.attr('disabled', false).click():false;
     });
 }
 global.saveData = function (json,qr,web){

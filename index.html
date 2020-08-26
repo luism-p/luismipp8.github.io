@@ -1,37 +1,50 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>web bar</title>
-    
+    <link crossorigin="anonymous" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" rel="stylesheet">
+
+    <link href="css/style.css" rel="stylesheet">
 
 </head>
 <body>
-    <h1 class="">TEST qrCode</h1>
+<h1 class="">TEST qrCode</h1>
 
-    <div id="code"></div>
+<div id="code"></div>
 
-    <div id="container" class="container-fluid mt-3">
-        <div class="jumbotron jumbotron-fluid d-flex p-3 align-items-center" >
+<div id="container" class="container-fluid mt-3">
+    <div class="jumbotron jumbotron-fluid p-2 d-flex align-middle">
+        <div class="d-flex  align-items-center w-20">
             <img class="mr-3" src="img/website-design.png" alt="" width="48" height="48">
             <div class="lh-100">
                 <h3 class="mb-0 text-black lh-100">Configura tu web</h3>
             </div>
         </div>
-
-        <div class="d-flex p-3 bg-secondary text-white">
-            <div class="p-2 bg-info"><a href="config.html">Config</a></div>
-            <div class="p-2 bg-warning">Flex item 2</div>
-            <div class="p-2 bg-primary">Flex item 3</div>
-        </div>
+            <nav class="nav justify-content-center w-75">
+                <a class="nav-link active" href="config.html">Configuración</a>
+                <a class="nav-link" href="#">Link</a>
+                <a class="nav-link" href="#">Link</a>
+                <a class="nav-link disabled" href="#">Disabled</a>
+            </nav>
     </div>
+
+</div>
 
 
 </body>
 
-<script src="js/qrcode.min.js"></script>
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script crossorigin="anonymous"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script crossorigin="anonymous"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script crossorigin="anonymous"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <!-- The core Firebase JS SDK is always required and must be listed first -->
 <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase.js"></script>
 <script src="js/main.js">
