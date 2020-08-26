@@ -2,19 +2,19 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
     <title>Document</title>
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/style.css">
+    <link crossorigin="anonymous" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
 </head>
 <body>
 
-<div id="container" class="container mt-3">
+<div class="container mt-3" id="container">
     <div class="jumbotron jumbotron-fluid d-flex p-3 align-items-center">
-        <img class="mr-3" src="img/website-design.png" alt="" width="48" height="48">
+        <img alt="" class="mr-3" height="48" src="img/website-design.png" width="48">
         <div class="lh-100">
             <h3 class="mb-0 text-black lh-100">Configura tu web</h3>
         </div>
@@ -26,14 +26,16 @@
             <div class="input-group-prepend">
                 <span class="input-group-text">Json configuración</span>
             </div>
-            <textarea id="textAreaJson" class="form-control" aria-label="With textarea"></textarea>
+            <textarea aria-label="With textarea" class="form-control" id="textAreaJson"></textarea>
         </div>
 
         <div id="alerta"></div>
 
 
-        <div id="divCode" class="border border-dark rounded mt-3 d-flex align-items-center justify-content-center">
-            <div id="qrCode"></div>
+        <div class="row">
+            <div class="col-md-5 mt-3">
+                <div id="qrCode"></div>
+            </div>
         </div>
 
         <div class="row">
@@ -42,12 +44,12 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text">Web</span>
                     </div>
-                    <input id="web" type="text" class="form-control" aria-label="With textarea"/>
+                    <input aria-label="With textarea" class="form-control" id="web" type="text"/>
                 </div>
             </div>
 
             <div class="col-md-5 mt-3">
-                <button id="generateCode" type="button" class="btn btn-dark" disabled>Generate code</button>
+                <button class="btn btn-dark" disabled id="generateCode" type="button">Generate code</button>
             </div>
         </div>
 
@@ -58,12 +60,12 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text">Contraseña</span>
                     </div>
-                    <input id="pass" type="password" class="form-control" aria-label="With textarea"/>
+                    <input aria-label="With textarea" class="form-control" id="pass" type="password"/>
                 </div>
             </div>
 
             <div class="col-md-5 mt-3">
-                <button id="btnSave" type="button" class="btn btn-dark" disabled>Guardar</button>
+                <button class="btn btn-dark" disabled id="btnSave" type="button">Guardar</button>
             </div>
         </div>
     </form>
@@ -71,15 +73,15 @@
 
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+<script crossorigin="anonymous"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script crossorigin="anonymous"
         integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script crossorigin="anonymous"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
+        src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <!-- The core Firebase JS SDK is always required and must be listed first -->
 <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase.js"></script>
 <script src="js/qrcode.min.js"></script>
