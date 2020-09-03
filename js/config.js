@@ -31,3 +31,4 @@ $(function (){
     global.loadData(global.setDataConfig);
 
 });
+

@@ -7,7 +7,7 @@ global.textAreaJson = $('#textAreaJson');
 global.generateCode = $('#generateCode');
 global.jsonData = {};
 
-global.showAlert = function (type, message){
+global.showAlert = function (type, message) {
     let alert = `<div class="alert alert-${type}" role="alert" id="alert">
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
@@ -17,7 +17,7 @@ global.showAlert = function (type, message){
     global.alerta.empty();
     global.alerta.html(alert);
 }
-global.connect = function (pass){
+global.connect = function (pass) {
     firebase.auth().signInWithEmailAndPassword("lm.perezpacheco@gmail.com", pass).then(function (result) {
         global.user = result.user;
         global.userUid = result.user.uid;
@@ -25,7 +25,7 @@ global.connect = function (pass){
         console.log(result);
         console.log(global.userUid);
 
-        let message = "Configuración de " +global.userEmail+ " guardada correctamente.";
+        let message = "Configuración de " + global.userEmail + " guardada correctamente.";
         global.showAlert("success", message);
 
         let json = global.textAreaJson.val();
@@ -39,7 +39,7 @@ global.connect = function (pass){
         var errorCode = error.code;
         var errorMessage = error.message;
         console.log(error)
-        let message = " Error: ("+errorCode+") "+errorMessage;
+        let message = " Error: (" + errorCode + ") " + errorMessage;
         global.showAlert("danger", message);
     });
 }
@@ -60,23 +60,23 @@ global.initFirebase = function () {
     firebase.initializeApp(firebaseConfig);
 
 }
-global.loadData = function (callback){
-    firebase.database().ref('data/yOVx8ZDrx0eqKlwbsDmWx90sbOt1').once('value').then(function(snapshot) {
+global.loadData = function (callback) {
+    firebase.database().ref('data/yOVx8ZDrx0eqKlwbsDmWx90sbOt1').once('value').then(function (snapshot) {
         global.jsonData = snapshot.val();
-        if(callback && typeof callback == "function") {
+        if (callback && typeof callback == "function") {
             console.log("inner");
             callback();
         }
     });
 }
-global.setDataConfig = function (){
-    global.jsonData.hasOwnProperty("carta")?global.textAreaJson.val(global.jsonData.carta).trigger('change'):global.textAreaJson.val("");
-    global.jsonData.hasOwnProperty("web")?global.web.val(global.jsonData.web).trigger('change'):global.web.val("");
+global.setDataConfig = function () {
+    global.jsonData.hasOwnProperty("carta") ? global.textAreaJson.val(global.jsonData.carta).trigger('change') : global.textAreaJson.val("");
+    global.jsonData.hasOwnProperty("web") ? global.web.val(global.jsonData.web).trigger('change') : global.web.val("");
 
-    global.web.val()?global.generateCode.attr('disabled', false).click():false;
+    global.web.val() ? global.generateCode.attr('disabled', false).click() : false;
 }
-global.saveData = function (json,qr,web){
-    if(json && qr && web) {
+global.saveData = function (json, qr, web) {
+    if (json && qr && web) {
         let task = firebase.database().ref("data/" + global.userUid);
         task.set({
                 carta: json,
@@ -84,13 +84,13 @@ global.saveData = function (json,qr,web){
                 web: web
             }
         );
-    }else{
+    } else {
         global.showAlert("danger", "Hay un dato incorrecto");
     }
 }
 
 global.createCode = function (idElement, web) {
-    $('#'+idElement).empty();
+    $('#' + idElement).empty();
     return new QRCode(idElement, {
         text: web,
         width: 300,
@@ -101,17 +101,36 @@ global.createCode = function (idElement, web) {
     });
 }
 
-//res.reduce((acc, user) => acc + userTemplate(user), "");
+global.printCarta = function () {
+    let cart = '';
+    let count = 1;
+    let carta = JSON.parse(global.jsonData.carta)
+    $.each(carta, function (key, val) {
+        const elements = val.reduce((acc, value) => acc + userTemplate(value), "");
+        const list =
+            `<div class="card bg-secondary">
+                <div class="card-header" id="heading${count}">
+                    <h2 class="mb-0">
+                        <button class="btn btn-link text-white" type="button" data-toggle="collapse" data-target="#collapse${count}" aria-expanded="true" aria-controls="collapse${count}">
+                            ${key}
+                        </button>
+                    </h2>
+                </div>
+                <div id="collapse${count}" class="collapse show" aria-labelledby="heading${count}" data-parent="#accordionExample">
+                    <ul class="list-group">
+                        ${elements}
+                    </ul>
+                </div>
+            </div>`;
+        count++;
+        cart += list;
+    })
+    $('#cartaAc').html(cart);
+}
 
-function userTemplate(user) {
-    const { city, street, suite } = user.address;
-
-    return `
-    <li class="user" id="user${user.id}">
-      <p class="user-name">
-        <b>${user.name}</b><span> -- ${user.username}</span>
-      </p>
-      <address class="user-address">${street} ${suite}, ${city}</address>
-    </li>
-  `;
+function userTemplate(com) {
+    return `<li class="list-group-item d-flex justify-content-between">
+            <span>${com.nombre}</span>
+            <span>${com.precio}€</span>
+            </li>`;
 }

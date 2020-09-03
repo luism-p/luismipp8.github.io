@@ -21,6 +21,6 @@ function see(){
 
 $(function (){
     global.initFirebase();
-    global.loadData(see);
+    global.loadData(global.printCarta);
 });
 
