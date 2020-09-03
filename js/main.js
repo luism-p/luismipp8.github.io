@@ -22,8 +22,8 @@ global.connect = function (pass) {
         global.user = result.user;
         global.userUid = result.user.uid;
         global.userEmail = result.user.email;
-        console.log(result);
-        console.log(global.userUid);
+        //console.log(result);
+        //console.log(global.userUid);
 
         let message = "Configuración de " + global.userEmail + " guardada correctamente.";
         global.showAlert("success", message);
@@ -38,7 +38,7 @@ global.connect = function (pass) {
         // Handle Errors here.
         var errorCode = error.code;
         var errorMessage = error.message;
-        console.log(error)
+        //console.log(error)
         let message = " Error: (" + errorCode + ") " + errorMessage;
         global.showAlert("danger", message);
     });
@@ -64,7 +64,6 @@ global.loadData = function (callback) {
     firebase.database().ref('data/yOVx8ZDrx0eqKlwbsDmWx90sbOt1').once('value').then(function (snapshot) {
         global.jsonData = snapshot.val();
         if (callback && typeof callback == "function") {
-            console.log("inner");
             callback();
         }
     });
