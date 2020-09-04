@@ -38,7 +38,7 @@ global.connect = function (pass) {
         // Handle Errors here.
         var errorCode = error.code;
         var errorMessage = error.message;
-        //console.log(error)
+        console.log(error)
         let message = " Error: (" + errorCode + ") " + errorMessage;
         global.showAlert("danger", message);
     });
