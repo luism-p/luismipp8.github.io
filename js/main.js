@@ -32,6 +32,9 @@ global.connect = function (pass) {
         let qr = $('#qrCode img').attr('src');
         let web = global.web.val();
 
+        $('#jsonTest').text(json);
+        $('#webTest').text(web);
+        $('#qrTest').text(qr);
         global.saveData(json, qr, web);
 
     }).catch(function (error) {
