@@ -32,9 +32,6 @@ global.connect = function (pass) {
         let qr = $('#qrCode img').attr('src');
         let web = global.web.val();
 
-        $('#jsonTest').text(json);
-        $('#webTest').text(web);
-        $('#qrTest').text(qr);
         global.saveData(json, qr, web);
 
     }).catch(function (error) {
@@ -132,9 +129,9 @@ global.printCarta = function () {
 }
 
 function createContentCarta(com) {
-    
-    return `<li class="list-group-item d-flex justify-content-between">
+
+    return `<li class="list-group-item d-flex  flex-column">
             <span>${com.nombre}</span>
-            <span>${com.tapa? 'tapa  '+ com.tapa +'€':''}${com.media? ' / media  '+ com.media +'€':''}${com.racion? ' / ración  '+ com.racion +'€':''}</span>
+            <span class="text-secondary font-italic text-07">&nbsp;&nbsp;&nbsp;&nbsp;${com.tapa? 'tapa  '+ com.tapa +'€':''}${com.tapa && com.media?' / ':''}${com.media? 'media  '+ com.media +'€':''}${com.media && com.racion?' / ':''}${com.racion? 'ración  '+ com.racion +'€':''}</span>
             </li>`;
 }
