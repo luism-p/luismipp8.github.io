@@ -78,14 +78,15 @@ global.setDataConfig = function () {
     global.web.val() ? global.generateCode.attr('disabled', false).click() : false;
 }
 global.saveData = function (json, qr, web) {
-    if (json && qr && web) {
+    let data = {};
+
+    if(json)data.carta = json;
+    if(qr)data.code = qr;
+    if(json)data.web = web;
+
+    if (data && web && json) {
         let task = firebase.database().ref("data/" + global.userUid);
-        task.set({
-                carta: json,
-                code: qr,
-                web: web
-            }
-        );
+        task.set(data);
     } else {
         global.showAlert("danger", "Hay un dato incorrecto");
     }
