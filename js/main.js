@@ -130,7 +130,7 @@ global.printCarta = function () {
 
 function createContentCarta(com) {
 
-    return `<li class="list-group-item d-flex  flex-column">
+    return `<li class="list-group-item d-flex flex-column">
             <span>${com.nombre}</span>
             <span class="text-secondary font-italic text-07">&nbsp;&nbsp;&nbsp;&nbsp;${com.tapa? 'tapa  '+ com.tapa +'€':''}${com.tapa && com.media?' / ':''}${com.media? 'media  '+ com.media +'€':''}${com.media && com.racion?' / ':''}${com.racion? 'ración  '+ com.racion +'€':''}</span>
             </li>`;
