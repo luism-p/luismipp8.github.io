@@ -109,7 +109,7 @@ global.printCarta = function () {
     let count = 1;
     let carta = JSON.parse(global.jsonData.carta)
     $.each(carta, function (key, val) {
-        const elements = val.reduce((acc, value) => acc + userTemplate(value), "");
+        const elements = val.reduce((acc, value) => acc + createContentCarta(value), "");
         const list =
             `<div class="card bg-secondary">
                 <div class="card-header" id="heading${count}">
@@ -131,9 +131,10 @@ global.printCarta = function () {
     $('#cartaAc').html(cart);
 }
 
-function userTemplate(com) {
+function createContentCarta(com) {
+    
     return `<li class="list-group-item d-flex justify-content-between">
             <span>${com.nombre}</span>
-            <span>${com.precio}€</span>
+            <span>${com.tapa? 'tapa  '+ com.tapa +'€':''}${com.media? ' / media  '+ com.media +'€':''}${com.racion? ' / ración  '+ com.racion +'€':''}</span>
             </li>`;
 }
